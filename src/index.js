@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { DndProvider } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
+import './styles/index.css';
 import * as serviceWorker from './serviceWorker';
+import App from "./App";
+import { GridProvider } from "./components/Grid/GridContext"
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <DndProvider backend={HTML5Backend}>
+    <GridProvider>
+      <App />
+    </GridProvider>
+  </DndProvider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
